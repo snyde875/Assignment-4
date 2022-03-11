@@ -17,6 +17,8 @@ In completing this assignment, your goal should be to learn:
 
 The amount of code you will need to write to complete this assignment is less than in the previous assignments. The support code provides quite a bit of infrastructure to deal with reading and playing back the mocap data. So, the key challenges will come in reading through and understanding the existing code as well as really thinking about the code that you do write. You will probably need to work out some of the structure on paper before sitting down at the keyboard to program.
 
+You can try out the [instructor's implementation](https://csci-4611-spring-2022.github.io/Builds/Assignment-4) in the Builds repository on the course GitHub.
+
 ## Submission Information
 
 You should fill out this information before submitting your assignment. Make sure to document the name and source of any third party assets that you added, such as models, images, sounds, or any other content used that was not solely written by you. 
@@ -63,7 +65,7 @@ Working from the support code, which is significant for this assignment, you wil
 2. Draw one (or more) animated characters that loop through a small motion clip when "at rest" and seamlessly transition to perform new motions when buttons are clicked, similar to how a character in a game would perform an action whenever you press a button on your controller.
 3. We suggesting starting #1 and #2 with a very simple character, like a stick figure, the final requirement is to make this character more interesting. Use transformation matrices to construct a more interesting character out of scaled spheres, cubes, cones, cylinders, or other simple shapes you can draw using Three.js.
 
-To accomplish these tasks, you will need to add code to the places marked TODO in the `AnimatedCharacter` class and in the `DanceApp` class. You will probably not need to add any new classes to the project in this assignment unless you are doing something sophisticated for the wizard bonus challenge.
+To accomplish these tasks, you will need to add code to the places marked "TO DO" in the `Bone`, `AnimatedCharacter`, and `DanceApp` classes. You will probably not need to add any new classes to the project in this assignment unless you are doing something more complex for the wizard bonus challenge.
 
 **Important Note:** Three.js includes an animation system that is meant for controlling rigged models prepared by an animator. You may notice that there are classes with identical names to the ones defined in the support code (`Skeleton`, `Bone`, etc.). Although these follow the same core graphics concepts, the full content development pipeline is more complicated, so we will not be using any of the animation classes provided by Three.js in this assignment.
 
@@ -73,9 +75,23 @@ Refer to the notes in class in the next couple of weeks. We will be talking abou
 
 ## Rubric
 
-Graded out of 20 points.  
+Graded out of 20 points.  Partial credit is possible for each step.
 
-To be added.
+**Part 1: Bone Class** (6 points total)
+
+1. Extend the `update()` method to define the transformation matrix for the current pose that will be used to draw each bone. (4 points)
+2. Call the `update()` method for each of the bone's children to propagate through the entire skeleton. (2 points)
+
+When this part is finished, you will be rewarded by seeing a pair a figures dancing the salsa!  At this point, they will only appear as coordinate axes helpers drawn at the position and orientation for each joint of their bodies 
+
+**Part 2: AnimatedCharacter Class  **(8 points total)
+
+3. Extend the `createMeshesRecursive()` method to (at least) a stick figure representation for the each bone so that your dancing coordinate frames now turn into a dancing stick figure. (4 points)
+4. Further extend this method to draw a more interesting character. You can use Three.js to draw simple mesh geometries like spheres, cubes, cylinders, cones, etc.  You can then apply scales, translation, and rotations to the meshes to create an interesting looking character. For example, notice how the "butts" of the ants that we have created are drawn using spheres that are scaled to create ellipsoids and then rotated by about 60 degrees. You should adjust colors and use several geometries to make a convincing character. You are free to make the same ant character that we did, but you are also free to create your own unique character. Just make sure that it includes a few examples of applying transformation matrices before drawing simple shapes so that we can be sure that you have learned that skill.  (4 points)
+
+**Part 3: DanceApp** (6 points total)
+
+5. Follow the pattern demonstrated with `balletDanceMotions` to define four additional special motions.  You will need to load motion clips from the .amc files, trim uninteresting frames from the front and back of the clips, and then play them when the "Motion X" buttons in the GUI are pressed.  You should visually verify that the motion smoothly transitions from the ballet dancer's base loop motion into all of these special motions whenever a new motion is played.  You are free to use the same motions we did, or look through the .amc files for other interesting animations to play.  (3 points for the first animation, 1 point for each additional one)
 
 ## Wizard Bonus Challenge
 
@@ -87,7 +103,7 @@ There are great opportunities for extra work in this assignment. For example:
 - You could pick different motion clips to use from the CMU database. 
 - You might consider turning the ballet character into a character that can be controlled with the mouse and keyboard rather than just buttons on the screen.
 - You could try to make a character than can walk around the screen using mocap data, but rather than following a pre-defined path, make it go wherever you command it with keyboard or mouse input.
-- You could extend the animation system with something completely different. Creativity is encouraged!
+- You could extend the animation system with your own unique idea. Creativity is encouraged!
 
 ## Submission
 
