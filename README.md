@@ -2,7 +2,20 @@
 
 **Due: Monday, March 28, 11:59pm CDT**
 
-To be added.
+Animated characters are an important part of computer games and other interactive graphics. In this assignment, you will learn how to animate computer graphics characters using data from motion capture systems. You will be working with data from the [Carnegie Mellon motion capture database]([http://mocap.cs.cmu.edu/), a great resource of free "mocap" data. The data will be formatted as text files, but with your programming and math skills, you will bring this data to life on the dance floor!
+
+The CMU motion capture data is typical of all the skeleton-based motion capture data found in games and movies. So, gaining some experience with this type of animation is one of the most important goals of the assignment. There are several important learning goals, including:
+
+In completing this assignment, your goal should be to learn:
+
+- How transformations can be composed in a hierarchy to create a scene graph and/or, in this case, an animated character within a scene.
+- How transformations can be used to scale, rotate, and translate basic shapes (unit cubes, spheres, cylinders, and cones) into more complex scenes and characters.
+- How mocap data can be used and manipulated in multiple ways to create different types of animations. For example:
+  - How to create a looping animation that smoothly interpolates between the beginning of the motion clip and the end to avoid any discontinuities.
+  - How to overlay new motion clips onto a character at runtime, for example, making your character jump in a game when you press a button, or in our case, perform one of a series of cool ballet moves.
+- How to read and extend some fairly sophisticated computer graphics code.
+
+The amount of code you will need to write to complete this assignment is less than in the previous assignments. The support code provides quite a bit of infrastructure to deal with reading and playing back the mocap data. So, the key challenges will come in reading through and understanding the existing code as well as really thinking about the code that you do write. You will probably need to work out some of the structure on paper before sitting down at the keyboard to program.
 
 ## Submission Information
 
@@ -34,6 +47,30 @@ npm run start
 
 The build system should launch your program in a web browser automatically.  If not, you can run it by pointing your browser at `http://localhost:8080`.
 
+## Data
+
+The CMU Mocap database contains 2,605 different motions, most recorded at 120Hz, but some recorded at 60Hz or other speeds. These motions range from the simple (person walking straight forward), to the complicated (directing traffic), to the silly (someone doing the "I'm a little teapot" dance).
+
+The motions in the CMU database use skeletons specified in .asf files and separate motions specified in .amc files. The .asf files specify bone names, directions, lengths, and the skeleton hierarchy for one specific human subject who came to the mocap lab. That person likely performed several motions during the capture session, so there is typically one .asf file for multiple .amc files. The subjects are numbered (e.g., subject #50). and the skeleton files are named accordingly (e.g., 50.asf). Motion filenames start with the subject ID, then have an underscore, then the number of the motion (e.g., 50_01.amc is the first motion captured for subject 50). The support code comes with the data files we used in our solution to the assignment, but it can be fun to swap in other motions, and you are encouraged to experiment with this by downloading other .asf and corresponding .amc files from the [CMU database](http://mocap.cs.cmu.edu/).  (This is a great opportunity for a wizard bonus!)
+
+If you are interested, you can also read more about the [Acclaim Motion Capture](http://graphics.cs.cmu.edu/nsp/course/cs229/info/ACCLAIMdef.html) data format used by the mocap files.
+
+## Requirements
+
+Working from the support code, which is significant for this assignment, you will be required to write the code to meet the following specifications:
+
+1. Draw one (or more) animated characters that perform a motion in a continuous loop. The support code starts you down this path by loading mocap data for the lead and follow parts of a salsa dance.
+2. Draw one (or more) animated characters that loop through a small motion clip when "at rest" and seamlessly transition to perform new motions when buttons are clicked, similar to how a character in a game would perform an action whenever you press a button on your controller.
+3. We suggesting starting #1 and #2 with a very simple character, like a stick figure, the final requirement is to make this character more interesting. Use transformation matrices to construct a more interesting character out of scaled spheres, cubes, cones, cylinders, or other simple shapes you can draw using Three.js.
+
+To accomplish these tasks, you will need to add code to the places marked TODO in the `AnimatedCharacter` class and in the `DanceApp` class. You will probably not need to add any new classes to the project in this assignment unless you are doing something sophisticated for the wizard bonus challenge.
+
+**Important Note:** Three.js includes an animation system that is meant for controlling rigged models prepared by an animator. You may notice that there are classes with identical names to the ones defined in the support code (`Skeleton`, `Bone`, etc.). Although these follow the same core graphics concepts, the full content development pipeline is more complicated, so we will not be using any of the animation classes provided by Three.js in this assignment.
+
+## Useful Math
+
+Refer to the notes in class in the next couple of weeks. We will be talking about rendering hierarchical models and about blending poses together via linear interpolation and how to interpolate angles smoothly.
+
 ## Rubric
 
 Graded out of 20 points.  
@@ -46,7 +83,11 @@ All of the assignments in the course will include great opportunities for studen
 
 There are great opportunities for extra work in this assignment. For example:
 
-- To be added.
+- You could add more characters or change the characters and put them in a different scene. 
+- You could pick different motion clips to use from the CMU database. 
+- You might consider turning the ballet character into a character that can be controlled with the mouse and keyboard rather than just buttons on the screen.
+- You could try to make a character than can walk around the screen using mocap data, but rather than following a pre-defined path, make it go wherever you command it with keyboard or mouse input.
+- You could extend the animation system with something completely different. Creativity is encouraged!
 
 ## Submission
 
