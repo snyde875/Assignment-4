@@ -84,7 +84,7 @@ Graded out of 20 points.  Partial credit is possible for each step.
 
 When this part is finished, you will be rewarded by seeing a pair a figures dancing the salsa!  At this point, they will only appear as coordinate axes helpers drawn at the position and orientation for each joint of their bodies 
 
-**Part 2: AnimatedCharacter Class  **(8 points total)
+**Part 2: AnimatedCharacter Class** (8 points total)
 
 3. Extend the `createMeshesRecursive()` method to (at least) a stick figure representation for the each bone so that your dancing coordinate frames now turn into a dancing stick figure. (4 points)
 4. Further extend this method to draw a more interesting character. You can use Three.js to draw simple mesh geometries like spheres, cubes, cylinders, cones, etc.  You can then apply scales, translation, and rotations to the meshes to create an interesting looking character. For example, notice how the "butts" of the ants that we have created are drawn using spheres that are scaled to create ellipsoids and then rotated by about 60 degrees. You should adjust colors and use several geometries to make a convincing character. You are free to make the same ant character that we did, but you are also free to create your own unique character. Just make sure that it includes a few examples of applying transformation matrices before drawing simple shapes so that we can be sure that you have learned that skill.  (4 points)
