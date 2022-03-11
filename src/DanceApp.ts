@@ -114,13 +114,18 @@ export class DanceApp extends GraphicsApp
         this.salsaMotionFollow = this.salsaAntLead.loadMotionClip('./assets/data/61_12.amc');
 
         this.balletBaseLoop = this.balletAnt.loadMotionClip('./assets/data/05_20.amc');
+        
         this.balletDanceMotions.push(this.balletAnt.loadMotionClip('./assets/data/05_02.amc'));
 
-        // TODO: Add special motions 2-5 on your own.
+
+
+        // TO DO: Add special motions 2-5 on your own.
         // You can pick your own motions from the CMU mocap database (http://mocap.cs.cmu.edu) or
-        // you can use the same dance moves that we did.  We used:
-        // 05_10.amc, 05_09.amc, 05_20.amc, and 05_06.amc -- you need to trim them
-        // to isolate the interesting portions of the motion.
+        // you can use the same dance moves that we did.  
+        // We used: 05_10.amc, 05_09.amc, 05_20.amc, and 05_06.amc
+
+        
+        
     }
 
     startAnimations(): void
@@ -139,10 +144,15 @@ export class DanceApp extends GraphicsApp
         this.balletDanceMotions[0].trimFront(280);
         this.balletDanceMotions[0].trimBack(200);
 
-        // TO DO: trim motions
 
 
-        // TO DO
+        // TO DO: You will need to trim the new animations you have added
+        // to isolate the interesting portions of the motion.
+
+
+        
+        // You should eventually turn off this boolean flag when you
+        // are satisfied that bone transformations are correct
         const showAxes = true; 
         this.salsaAntLead.createMeshes(showAxes);
         this.salsaAntFollow.createMeshes(showAxes);
@@ -203,21 +213,21 @@ export class DanceApp extends GraphicsApp
 
     playBalletMotion2(): void
     {
-        // TO DO
+        // TO DO: Overlay the motion, similar to the call above
     }
 
     playBalletMotion3(): void
     {
-        // TO DO
+        // TO DO: Overlay the motion, similar to the call above
     }
 
     playBalletMotion4(): void
     {
-        // TO DO
+        // TO DO: Overlay the motion, similar to the call above
     }
 
     playBalletMotion5(): void
     {
-        // TO DO
+        // TO DO: Overlay the motion, similar to the call above
     }
 }

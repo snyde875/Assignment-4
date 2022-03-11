@@ -41,6 +41,10 @@ export class AnimatedCharacter extends THREE.Object3D
 
     createMeshes(showAxes: boolean): void
     {
+        // Here is a good way to check your work -- draw the coordinate axes for each
+        // bone.  To start, this will just draw the axes for the root node of the
+        // character, but once you add this to createMeshesRecursive, you can
+        // draw the axes for each bone.
         if(showAxes)
         {
             this.skeleton.rootTransform.add(new THREE.AxesHelper(0.15));
@@ -53,7 +57,27 @@ export class AnimatedCharacter extends THREE.Object3D
 
     private createMeshesRecursive(bone: Bone, showAxes: boolean): void
     {
-        // TO DO
+        // TO DO: Draw the bone so that the character will be diplayed as a stick figure
+        // You will want to create a thin box mesh that is the length of the bone
+        // and then orient it so that it is pointing in the correct direction
+
+
+
+        // TO DO: Eventually, you'll want to draw something different depending on which part
+        // of the body is being drawn.  An if statement like this is an easy way to do that.
+        // You can find the names of additional bones in the .asf files.
+        // if(bone.name == 'head')
+        // {
+        // }
+        // else if(bone.name == 'upperback')
+        // {
+        // }
+        // else if(bone.name == 'lowerback')
+        // {
+        // }
+
+
+        // TO DO: Recursively this function for each of the bone's children
     }
 
     loadSkeleton(filename: string): void
